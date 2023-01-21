@@ -847,3 +847,23 @@
 /obj/effect/temp_visual/pale_eye_attack/Initialize()
 	..()
 	animate(src, alpha = 0, time = 5)
+
+/obj/effect/temp_visual/damage_effect
+	name = "damage"
+	icon_state = "red_damage"
+	duration = 7
+
+/obj/effect/temp_visual/damage_effect/Initialize(mapload, atom/target, starting_alpha = 255)
+	. = ..()
+	setDir(target.dir)
+	alpha = clamp(starting_alpha, 10, 255)
+	animate(src, alpha = 0, time = 6)
+
+/obj/effect/temp_visual/damage_effect/white
+	icon_state = "white_damage"
+
+/obj/effect/temp_visual/damage_effect/black
+	icon_state = "black_damage"
+
+/obj/effect/temp_visual/damage_effect/pale
+	icon_state = "pale_damage"
